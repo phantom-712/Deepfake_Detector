@@ -12,9 +12,8 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt && \
-    pip install --no-cache-dir matplotlib
+# Install Python dependencies (versions pinned in requirements.txt)
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY scripts/ ./scripts/
