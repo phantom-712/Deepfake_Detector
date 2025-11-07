@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  vit-deepfake:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vit-deepfake:latest
+    container_name: vit-deepfake
+    volumes:
+      # Mount data directory (read-only for training data, read-write for manifests)
+      - ./data:/app/data
+      # Mount models directory to persist checkpoints
+      - ./models:/app/models
+      # Mount results directory to persist logs
+      - ./results:/app/results
+      # Mount plots directory to persist visualizations
+      - ./plots:/app/plots
+      # Mount json directory to persist predictions
+      - ./json:/app/json
+    environment:
+      - CUDA_VISIBLE_DEVICES=0  # Set to specific GPU or empty for all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # Override command when running
+    # Example: docker-compose run vit-deepfake python scripts/train.py --pretrained --epochs 15
+    stdin_open: true
+    tty: true
+

@@ -1,0 +1,32 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Model checkpoints - ignore epoch checkpoints, keep best model
+models/epoch_*.pth
+
+# Keep best model (explicitly track it)
+!models/best_*.pth
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.venv
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
