@@ -368,13 +368,6 @@ Or with custom parameters:
 - **Accuracy:** 0.8814 (88.14%)
 - **Validation Loss:** 0.3423
 
-### Final Metrics (Epoch 15):
-- **Train Loss:** 0.2826
-- **Val Loss:** 0.4684
-- **AUC:** 0.7123
-- **F1 Score:** 0.8780
-- **Accuracy:** 0.7881 (78.81%)
-
 ### Average Metrics (across all epochs):
 - **Avg Train Loss:** 0.5117
 - **Avg Val Loss:** 0.4400
